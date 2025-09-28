@@ -98,7 +98,7 @@ plt.ylabel('Time, sec')
 plt.grid(True)
 plt.show()
 ```
-![png](Variant8/Img/Num1.5.Image.png)
+![png](Img/Num1.5.Image.png)
 
 ## Задание 1.6
 ```python
@@ -144,7 +144,7 @@ plt.ylabel('Time, sec')
 plt.grid(True)
 plt.show()
 ```
-![png](Variant8/Img/Num1.6.Image.png)
+![png](Img/Num1.6.Image.png)
 
 ## Задание 1.8
 ```python
@@ -191,7 +191,7 @@ plt.ylabel('Time, sec')
 plt.grid(True)
 plt.show()
 ```
-![png](Variant8/Img/Num1.8.Image.png)
+![png](Img/Num1.8.Image.png)
 
 ## Задание 2
 ```python
@@ -260,4 +260,4 @@ plt.ylabel('Time, sec')
 plt.grid(True)
 plt.show()
 ```
-![png](Variant8/Img/Num2.0.Image.png)
+![png](Img/Num2.0.Image.png)
