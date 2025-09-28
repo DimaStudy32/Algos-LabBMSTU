@@ -11,7 +11,7 @@
 
 ## Задания
 ### Задание 1.2
-'''import random
+import random
 import time
 import matplotlib.pyplot as plt
 
@@ -51,8 +51,8 @@ plt.title('The execution time of the sum of list elements algorithm')
 plt.xlabel('Number of elements')
 plt.ylabel('Time, sec')
 plt.grid(True)
-plt.show()'''
+plt.show()
 
-![png](/home/dmitry/jupyter_projects/Num1.2.Image.png)
+![png](/home/dmitry/Документы/Algos-LabBMSTU/Variant8/Img/Num1.2.Image.png)
 
 
