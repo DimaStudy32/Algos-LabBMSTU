@@ -9,9 +9,9 @@
 ## Группа 
 ИУ10-37
 
-## Задания
+## Задания 
 ### Задание 1.2
-'''python
+```python
 import random
 import time
 import matplotlib.pyplot as plt
@@ -52,7 +52,7 @@ plt.xlabel('Number of elements')
 plt.ylabel('Time, sec')
 plt.grid(True)
 plt.show()
-'''
+```
 
 ![png](Img/Num1.2.Image.png)
 
