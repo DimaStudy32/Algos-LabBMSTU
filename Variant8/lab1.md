@@ -46,7 +46,6 @@ for n in items:
     times.append(avg_time)
     print(f"n={n}: {avg_time:.6f} сек")
 
-# График
 plt.plot(items, times, 'bo-')
 plt.title('The execution time of the sum of list elements algorithm')
 plt.xlabel('Number of elements')
