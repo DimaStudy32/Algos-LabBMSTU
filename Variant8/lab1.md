@@ -195,11 +195,12 @@ plt.show()
 
 ## Задание 2
 ```python
-import random
-import timeit
-import functools
-import typing
+import numpy as np
 import matplotlib.pyplot as plt
+import timeit        
+import functools     
+import typing        
+
 
 def get_usage_time(*, number: int = 1, setup: str = 'pass', ndigits: int = 3):
     def decorator(func: typing.Callable) -> typing.Callable:
@@ -214,50 +215,34 @@ def get_usage_time(*, number: int = 1, setup: str = 'pass', ndigits: int = 3):
         return wrapper
     return decorator
 
-def matrix_mult(matrix_a: list, matrix_b: list):
-    n = len(matrix_a)
-    matrix_c = [[0 for _ in range(n)] for _ in range(n)]
+def matrix(n):  
+    random_matrix1 = np.random.randint(0, 100, size=(n, n))
+    random_matrix2 = np.random.randint(0, 100, size=(n, n))
+    random_matrix3 = np.zeros((n, n), dtype=int) 
+    
+    for i in range(n):
+        for j in range(n):
+            product_in_matrix = 0
+            for m in range(n):
+                product_in_matrix += random_matrix1[i][m] * random_matrix2[m][j]
+            random_matrix3[i][j] = product_in_matrix
+    
+    return random_matrix3
 
-    for y in range(n):
-        for x in range(n):
-            num = 0
-            for i in range(n):
-                num += matrix_a[y][i] * matrix_b[i][x]
-            matrix_c[y][x] = num
-    return matrix_c
+items = range(1, 100, 10) 
+func = get_usage_time()(matrix) 
+times = []
 
-student_number = 8  
-N = 20 - student_number
-items = range(1, 10**2 * N, 100) 
-func = get_usage_time()(matrix_mult)
+for n in items:
+    result = func(n)  
+    times.append(result)
 
-times = [
-    func(
-        [
-            [
-                random.randint(1, 3)
-                for _ in range(n)
-            ]
-            for _ in range(n)
-        ],
-        [
-            [
-                random.randint(4, 6)
-                for _ in range(n)
-            ]
-            for _ in range(n)
-        ]
-    )
-    for n in items
-]
-
-print(f"Матричное умножение | Вариант {student_number} | Точек: {len(list(items))}")
-
-plt.plot(items, times, 'bo-')
-plt.title('The execution time of the matrix multiplication algorithm')
-plt.xlabel('Matrix size (n x n)')
-plt.ylabel('Time, sec')
-plt.grid(True)
+fig = plt.plot(items, times, 'bo-')
+ax = plt.gca()
+plt.title('Время выполнения алгоритма умножения матриц')
+ax.set_xlabel('Размер матрицы n×n')
+ax.set_ylabel('Время, сек')
 plt.show()
+
 ```
-![png](Img/Num2.0.Image.png)
+![png](Img/Num2.1.Image.png)
