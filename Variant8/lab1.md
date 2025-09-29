@@ -194,26 +194,10 @@ plt.show()
 ![png](Img/Num1.8.Image.png)
 
 ## Задание 2
-```python
-import numpy as np
+```import numpy as np
 import matplotlib.pyplot as plt
-import timeit        
-import functools     
-import typing        
-
-
-def get_usage_time(*, number: int = 1, setup: str = 'pass', ndigits: int = 3):
-    def decorator(func: typing.Callable) -> typing.Callable:
-        @functools.wraps(func)
-        def wrapper(*args, **kwargs) -> float:
-            usage_time = timeit.timeit(
-                lambda: func(*args, **kwargs),
-                setup=setup,
-                number=number,
-            )
-            return round(usage_time / number, ndigits)
-        return wrapper
-    return decorator
+from time import perf_counter
+import typing
 
 def matrix(n):  
     random_matrix1 = np.random.randint(0, 100, size=(n, n))
@@ -229,19 +213,24 @@ def matrix(n):
     
     return random_matrix3
 
+def measure_time(func: typing.Callable, n: int) -> float:
+    start_time = perf_counter()
+    result = func(n)
+    end_time = perf_counter()
+    return end_time - start_time
+
 items = range(1, 100, 10) 
-func = get_usage_time()(matrix) 
 times = []
 
 for n in items:
-    result = func(n)  
-    times.append(result)
+    execution_time = measure_time(matrix, n)
+    times.append(execution_time)
 
-fig = plt.plot(items, times, 'bo-')
-ax = plt.gca()
+plt.plot(items, times, 'bo-')
 plt.title('Время выполнения алгоритма умножения матриц')
-ax.set_xlabel('Размер матрицы n×n')
-ax.set_ylabel('Время, сек')
+plt.xlabel('Размер матрицы n×n')
+plt.ylabel('Время, сек')
+plt.grid(True)
 plt.show()
 
 ```
