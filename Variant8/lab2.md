@@ -507,6 +507,10 @@ plt.ylabel('Время, сек')
 plt.grid(True, alpha=0.3)
 plt.show()
 ```
+![png](Img/Num6.11.Odd-Even-Sort.png)
+
+
+
 
 2. **Stooge sort**
 ```python
@@ -554,5 +558,5 @@ plt.ylabel('Время, сек')
 plt.grid(True, alpha=0.3)
 plt.show()
 ```
-
+![png](Img/Num6.11.Stooge-Sort.png)
 
